@@ -2767,7 +2767,7 @@ outline: none;</string>
              </property>
              <property name="maximumSize">
               <size>
-               <width>0</width>
+               <width>24</width>
                <height>16777215</height>
               </size>
              </property>
@@ -2781,112 +2781,6 @@ outline: none;</string>
               <property name="bottomMargin">
                <number>10</number>
               </property>
-              <item>
-               <widget class="QWidget" name="AAUSBWidget2" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <layout class="QVBoxLayout" name="verticalLayout_11">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QPushButton" name="pushButtonAndroidAuto2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>66</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>66</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
-outline: none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normalon>:/aausb-hot.png</normalon>
-                    </iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>50</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButtonNoDevice2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>66</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>66</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-color: rgb(255, 255, 255);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
-outline: none;</string>
-                   </property>
-                   <property name="text">
-                    <string>No
-USB
-Device</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
               <item>
                <widget class="QWidget" name="AAWIFIWidget2" native="true">
                 <property name="sizePolicy">
