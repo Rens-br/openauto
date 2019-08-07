@@ -390,12 +390,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->pushButtonDummy3->hide();
     }
 
-    // show dev labels if dev mode activated
-    if (!this->devModeEnabled) {
-        ui_->devlabel_left->hide();
-        ui_->devlabel_right->hide();
-    }
-
     // set brightness slider attribs from cs config
     ui_->horizontalSliderBrightness->setMinimum(configuration->getCSValue("BR_MIN").toInt());
     ui_->horizontalSliderBrightness->setMaximum(configuration->getCSValue("BR_MAX").toInt());
@@ -2118,11 +2112,7 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->pushButtonUpdate->show();
             ui_->label_left->show();
             ui_->label_right->show();
-            if (this->devModeEnabled) {
-                ui_->devlabel_right->hide();
-            } else {
-                ui_->label_dummy_right->show();
-            }
+            ui_->label_dummy_right->show();
         }
     } else {
         if (ui_->pushButtonUpdate->isVisible() == true) {
@@ -2130,9 +2120,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->label_left->hide();
             ui_->label_right->hide();
             ui_->label_dummy_right->hide();
-            if (this->devModeEnabled) {
-                ui_->devlabel_right->show();
-            }
         }
     }
 
