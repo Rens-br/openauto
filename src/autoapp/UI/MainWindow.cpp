@@ -106,7 +106,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
     connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::switchGuiToNight);
     connect(ui_->pushButtonBrightness, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
-    connect(ui_->pushButtonBrightness2, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
     connect(ui_->pushButtonVolume, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonVolume2, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonDebug, &QPushButton::clicked, this, &MainWindow::createDebuglog);
@@ -117,11 +116,9 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonUnMute, &QPushButton::clicked, this, &MainWindow::toggleMuteButton);
     connect(ui_->pushButtonUnMute, &QPushButton::clicked, this, &MainWindow::setUnMute);
     connect(ui_->pushButtonToggleGUI, &QPushButton::clicked, this, &MainWindow::toggleGUI);
-    connect(ui_->pushButtonToggleGUI2, &QPushButton::clicked, this, &MainWindow::toggleGUI);
     connect(ui_->pushButtonWifi, &QPushButton::clicked, this, &MainWindow::openConnectDialog);
     connect(ui_->pushButtonWifi2, &QPushButton::clicked, this, &MainWindow::openConnectDialog);
     connect(ui_->pushButtonMusic, &QPushButton::clicked, this, &MainWindow::playerShow);
-    connect(ui_->pushButtonMusic2, &QPushButton::clicked, this, &MainWindow::playerShow);
     connect(ui_->pushButtonBack, &QPushButton::clicked, this, &MainWindow::playerHide);
     connect(ui_->pushButtonPlayerBack, &QPushButton::clicked, this, &MainWindow::playerHide);
     connect(ui_->pushButtonAndroidAuto, &QPushButton::clicked, this, &MainWindow::TriggerAppStart);
@@ -202,7 +199,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     }
 
     ui_->pushButtonLock->hide();
-    ui_->pushButtonLock2->hide();
 
     ui_->btDevice->hide();
 
@@ -223,7 +219,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     QFileInfo brightnessFile(brightnessFilename);
     if (!brightnessFile.exists() && !this->brightnessButtonForce) {
         ui_->pushButtonBrightness->hide();
-        ui_->pushButtonBrightness2->hide();
     }
 
     // as default hide brightness slider
@@ -406,7 +401,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     if (std::ifstream("/tmp/custombrightness")) {
         if (!configuration->hideBrightnessControl()) {
             ui_->pushButtonBrightness->show();
-            ui_->pushButtonBrightness2->show();
         }
         this->customBrightnessControl = true;
     }
@@ -474,13 +468,11 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     // hide gui toggle if enabled in settings
     if (configuration->hideMenuToggle()) {
         ui_->pushButtonToggleGUI->hide();
-        ui_->pushButtonToggleGUI2->hide();
     }
 
     // hide brightness button if eanbled in settings
     if (configuration->hideBrightnessControl()) {
         ui_->pushButtonBrightness->hide();
-        ui_->pushButtonBrightness2->hide();
         ui_->BrightnessSliderControl->hide();
         // also hide volume button cause not needed if brightness not visible
         ui_->pushButtonVolume->hide();
@@ -497,7 +489,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->pushButtonDay2->hide();
         ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
-        ui_->pushButtonBrightness2->hide();
         // hide also volume cause not needed without brightness
         ui_->pushButtonVolume->hide();
         ui_->pushButtonVolume2->hide();
@@ -810,10 +801,6 @@ void f1x::openauto::autoapp::ui::MainWindow::updateAlpha()
         ui_->pushButtonNoWiFiDevice->setStyleSheet( "background-color: rgba(252, 175, 62, " + alp + " ); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); color: rgb(255,255,255);");
         // old style
         ui_->pushButtonSettings2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonLock2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonMusic2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonBrightness2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonToggleGUI2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonExit2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonShutdown2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonReboot2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
@@ -1855,7 +1842,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
                 ui_->pushButtonSettings->hide();
                 ui_->pushButtonSettings2->hide();
                 ui_->pushButtonLock->show();
-                ui_->pushButtonLock2->show();
                 ui_->SysinfoTopLeft2->setText("Config in progress ...");
                 ui_->SysinfoTopLeft2->show();
             }
@@ -1865,7 +1851,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
                 ui_->pushButtonDebug->hide();
                 ui_->pushButtonDebug2->hide();
                 ui_->pushButtonLock->show();
-                ui_->pushButtonLock2->show();
                 ui_->SysinfoTopLeft2->setText("Creating debug.zip ...");
                 ui_->SysinfoTopLeft2->show();
             }
@@ -1883,7 +1868,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->pushButtonSettings->show();
             ui_->pushButtonSettings2->show();
             ui_->pushButtonLock->hide();
-            ui_->pushButtonLock2->hide();
             if (this->systemDebugmode) {
                 ui_->pushButtonDebug->show();
                 ui_->pushButtonDebug2->show();
@@ -2012,7 +1996,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         ui_->pushButtonDay2->hide();
         ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
-        ui_->pushButtonBrightness2->hide();
     }
 
     // use big clock in classic gui?
@@ -2058,17 +2041,14 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
     // hide gui toggle if enabled in settings
     if (this->configuration_->hideMenuToggle()) {
         ui_->pushButtonToggleGUI->hide();
-        ui_->pushButtonToggleGUI2->hide();
     } else {
         ui_->pushButtonToggleGUI->show();
-        ui_->pushButtonToggleGUI2->show();
     }
 
     // hide brightness button if eanbled in settings
     if (configuration_->hideBrightnessControl()) {
         if ((ui_->pushButtonBrightness->isVisible() == true) || (ui_->pushButtonBrightness->isVisible() == true) || (ui_->BrightnessSliderControl->isVisible() == true)) {
             ui_->pushButtonBrightness->hide();
-            ui_->pushButtonBrightness2->hide();
             ui_->BrightnessSliderControl->hide();
             // also hide volume button if brightness hidden
             ui_->pushButtonVolume->hide();
@@ -2081,7 +2061,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         if (!this->lightsensor) {
             if ((ui_->pushButtonBrightness->isVisible() == false) || (ui_->pushButtonBrightness->isVisible() == false)) {
                 ui_->pushButtonBrightness->show();
-                ui_->pushButtonBrightness2->show();
                 // also show volume button if brightness visible
                 ui_->pushButtonVolume->show();
                 ui_->pushButtonVolume2->show();
