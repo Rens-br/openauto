@@ -106,6 +106,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
     connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::switchGuiToNight);
     connect(ui_->pushButtonBrightness, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
+    connect(ui_->pushButtonBrightness2, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
     connect(ui_->pushButtonVolume, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonVolume2, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonDebug, &QPushButton::clicked, this, &MainWindow::createDebuglog);
@@ -116,13 +117,17 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonUnMute, &QPushButton::clicked, this, &MainWindow::toggleMuteButton);
     connect(ui_->pushButtonUnMute, &QPushButton::clicked, this, &MainWindow::setUnMute);
     connect(ui_->pushButtonToggleGUI, &QPushButton::clicked, this, &MainWindow::toggleGUI);
+    connect(ui_->pushButtonToggleGUI2, &QPushButton::clicked, this, &MainWindow::toggleGUI);
     connect(ui_->pushButtonWifi, &QPushButton::clicked, this, &MainWindow::openConnectDialog);
     connect(ui_->pushButtonWifi2, &QPushButton::clicked, this, &MainWindow::openConnectDialog);
     connect(ui_->pushButtonMusic, &QPushButton::clicked, this, &MainWindow::playerShow);
+    connect(ui_->pushButtonMusic2, &QPushButton::clicked, this, &MainWindow::playerShow);
     connect(ui_->pushButtonBack, &QPushButton::clicked, this, &MainWindow::playerHide);
     connect(ui_->pushButtonPlayerBack, &QPushButton::clicked, this, &MainWindow::playerHide);
     connect(ui_->pushButtonAndroidAuto, &QPushButton::clicked, this, &MainWindow::TriggerAppStart);
     connect(ui_->pushButtonAndroidAuto, &QPushButton::clicked, this, &MainWindow::setRetryUSBConnect);
+    connect(ui_->pushButtonAndroidAuto2, &QPushButton::clicked, this, &MainWindow::TriggerAppStart);
+    connect(ui_->pushButtonAndroidAuto2, &QPushButton::clicked, this, &MainWindow::setRetryUSBConnect);
 
     ui_->clockOnlyWidget->hide();
 
@@ -135,6 +140,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     ui_->SysinfoTopLeft->hide();
 
     ui_->ButtonAndroidAuto->hide();
+    ui_->pushButtonAndroidAuto2->hide();
 
     ui_->SysinfoTopLeft2->hide();
 
@@ -217,6 +223,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     QFileInfo brightnessFile(brightnessFilename);
     if (!brightnessFile.exists() && !this->brightnessButtonForce) {
         ui_->pushButtonBrightness->hide();
+        ui_->pushButtonBrightness2->hide();
     }
 
     // as default hide brightness slider
@@ -238,6 +245,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->AAWIFIWidget2->hide();
     } else {
         ui_->AAUSBWidget->hide();
+        ui_->AAUSBWidget2->hide();
     }
 
     if (std::ifstream("/tmp/temp_recent_list") || std::ifstream("/tmp/mobile_hotspot_detected")) {
@@ -382,6 +390,12 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->pushButtonDummy3->hide();
     }
 
+    // show dev labels if dev mode activated
+    if (!this->devModeEnabled) {
+        ui_->devlabel_left->hide();
+        ui_->devlabel_right->hide();
+    }
+
     // set brightness slider attribs from cs config
     ui_->horizontalSliderBrightness->setMinimum(configuration->getCSValue("BR_MIN").toInt());
     ui_->horizontalSliderBrightness->setMaximum(configuration->getCSValue("BR_MAX").toInt());
@@ -392,6 +406,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     if (std::ifstream("/tmp/custombrightness")) {
         if (!configuration->hideBrightnessControl()) {
             ui_->pushButtonBrightness->show();
+            ui_->pushButtonBrightness2->show();
         }
         this->customBrightnessControl = true;
     }
@@ -459,11 +474,13 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     // hide gui toggle if enabled in settings
     if (configuration->hideMenuToggle()) {
         ui_->pushButtonToggleGUI->hide();
+        ui_->pushButtonToggleGUI2->hide();
     }
 
     // hide brightness button if eanbled in settings
     if (configuration->hideBrightnessControl()) {
         ui_->pushButtonBrightness->hide();
+        ui_->pushButtonBrightness2->hide();
         ui_->BrightnessSliderControl->hide();
         // also hide volume button cause not needed if brightness not visible
         ui_->pushButtonVolume->hide();
@@ -480,6 +497,7 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->pushButtonDay2->hide();
         ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
+        ui_->pushButtonBrightness2->hide();
         // hide also volume cause not needed without brightness
         ui_->pushButtonVolume->hide();
         ui_->pushButtonVolume2->hide();
@@ -662,6 +680,37 @@ void f1x::openauto::autoapp::ui::MainWindow::on_pushButtonBrightness_clicked()
     ui_->VolumeSliderControl->hide();
 }
 
+void f1x::openauto::autoapp::ui::MainWindow::on_pushButtonBrightness2_clicked()
+{
+    this->brightnessFile = new QFile(this->brightnessFilename);
+    this->brightnessFileAlt = new QFile(this->brightnessFilenameAlt);
+
+    // Get the current brightness value
+    if (!this->customBrightnessControl) {
+        if (this->brightnessFile->open(QIODevice::ReadOnly)) {
+            QByteArray data = this->brightnessFile->readAll();
+            std::string::size_type sz;
+            int brightness_val = std::stoi(data.toStdString(), &sz);
+            ui_->horizontalSliderBrightness->setValue(brightness_val);
+            QString bri=QString::number(brightness_val);
+            ui_->brightnessValueLabel->setText(bri);
+            this->brightnessFile->close();
+        }
+    } else {
+        if (this->brightnessFileAlt->open(QIODevice::ReadOnly)) {
+            QByteArray data = this->brightnessFileAlt->readAll();
+            std::string::size_type sz;
+            int brightness_val = std::stoi(data.toStdString(), &sz);
+            ui_->horizontalSliderBrightness->setValue(brightness_val);
+            QString bri=QString::number(brightness_val);
+            ui_->brightnessValueLabel->setText(bri);
+            this->brightnessFileAlt->close();
+        }
+    }
+    ui_->BrightnessSliderControl->show();
+    ui_->VolumeSliderControl->hide();
+}
+
 void f1x::openauto::autoapp::ui::MainWindow::on_pushButtonVolume_clicked()
 {
     ui_->horizontalSliderVolume->show();
@@ -762,10 +811,15 @@ void f1x::openauto::autoapp::ui::MainWindow::updateAlpha()
         // old style
         ui_->pushButtonSettings2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonLock2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
+        ui_->pushButtonMusic2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
+        ui_->pushButtonBrightness2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
+        ui_->pushButtonToggleGUI2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonExit2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonShutdown2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonReboot2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonCancel2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
+        ui_->pushButtonAndroidAuto2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
+        ui_->pushButtonNoDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonWifi2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonNoWiFiDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonDay2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
@@ -1743,6 +1797,10 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->ButtonAndroidAuto->show();
             ui_->pushButtonNoDevice->hide();
         }
+        if (ui_->pushButtonAndroidAuto2->isVisible() == false) {
+            ui_->pushButtonAndroidAuto2->show();
+            ui_->pushButtonNoDevice2->hide();
+        }
         try {
             QFile deviceData(QString("/tmp/android_device"));
             deviceData.open(QIODevice::ReadOnly);
@@ -1757,6 +1815,10 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         if (ui_->ButtonAndroidAuto->isVisible() == true) {
             ui_->pushButtonNoDevice->show();
             ui_->ButtonAndroidAuto->hide();
+        }
+        if (ui_->pushButtonAndroidAuto2->isVisible() == true) {
+            ui_->pushButtonNoDevice2->show();
+            ui_->pushButtonAndroidAuto2->hide();
         }
         ui_->labelAndroidAutoBottom->setText("");
     }
@@ -1889,12 +1951,14 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->AAWIFIWidget->hide();
             ui_->AAWIFIWidget2->hide();
             ui_->AAUSBWidget->show();
+            ui_->AAUSBWidget2->show();
         }
     } else {
         if ((ui_->AAWIFIWidget->isVisible() == false) || (ui_->AAWIFIWidget2->isVisible() == false)) {
             ui_->AAWIFIWidget->show();
             ui_->AAWIFIWidget2->show();
             ui_->AAUSBWidget->hide();
+            ui_->AAUSBWidget2->hide();
         }
     }
 
@@ -1948,6 +2012,7 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         ui_->pushButtonDay2->hide();
         ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
+        ui_->pushButtonBrightness2->hide();
     }
 
     // use big clock in classic gui?
@@ -1993,14 +2058,17 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
     // hide gui toggle if enabled in settings
     if (this->configuration_->hideMenuToggle()) {
         ui_->pushButtonToggleGUI->hide();
+        ui_->pushButtonToggleGUI2->hide();
     } else {
         ui_->pushButtonToggleGUI->show();
+        ui_->pushButtonToggleGUI2->show();
     }
 
     // hide brightness button if eanbled in settings
     if (configuration_->hideBrightnessControl()) {
         if ((ui_->pushButtonBrightness->isVisible() == true) || (ui_->pushButtonBrightness->isVisible() == true) || (ui_->BrightnessSliderControl->isVisible() == true)) {
             ui_->pushButtonBrightness->hide();
+            ui_->pushButtonBrightness2->hide();
             ui_->BrightnessSliderControl->hide();
             // also hide volume button if brightness hidden
             ui_->pushButtonVolume->hide();
@@ -2013,6 +2081,7 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         if (!this->lightsensor) {
             if ((ui_->pushButtonBrightness->isVisible() == false) || (ui_->pushButtonBrightness->isVisible() == false)) {
                 ui_->pushButtonBrightness->show();
+                ui_->pushButtonBrightness2->show();
                 // also show volume button if brightness visible
                 ui_->pushButtonVolume->show();
                 ui_->pushButtonVolume2->show();
@@ -2049,7 +2118,11 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->pushButtonUpdate->show();
             ui_->label_left->show();
             ui_->label_right->show();
-            ui_->label_dummy_right->show();
+            if (this->devModeEnabled) {
+                ui_->devlabel_right->hide();
+            } else {
+                ui_->label_dummy_right->show();
+            }
         }
     } else {
         if (ui_->pushButtonUpdate->isVisible() == true) {
@@ -2057,6 +2130,9 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->label_left->hide();
             ui_->label_right->hide();
             ui_->label_dummy_right->hide();
+            if (this->devModeEnabled) {
+                ui_->devlabel_right->show();
+            }
         }
     }
 
