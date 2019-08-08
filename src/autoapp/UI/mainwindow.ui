@@ -101,7 +101,7 @@
     <item>
      <widget class="QWidget" name="headerWidget" native="true">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -114,7 +114,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>
@@ -912,13 +912,13 @@ color: rgb(255, 255, 255);</string>
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>24</height>
+        <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
-        <height>24</height>
+        <width>0</width>
+        <height>0</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -2467,7 +2467,7 @@ outline: none;</string>
       </property>
       <property name="minimumSize">
        <size>
-        <width>800</width>
+        <width>801</width>
         <height>480</height>
        </size>
       </property>
@@ -2504,18 +2504,18 @@ outline: none;</string>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="Window">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
@@ -2560,18 +2560,18 @@ outline: none;</string>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="Window">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
@@ -2616,18 +2616,18 @@ outline: none;</string>
          <colorrole role="Base">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
          <colorrole role="Window">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>0</red>
-            <green>255</green>
-            <blue>0</blue>
+            <red>38</red>
+            <green>50</green>
+            <blue>56</blue>
            </color>
           </brush>
          </colorrole>
@@ -2694,7 +2694,7 @@ outline: none;</string>
                <number>10</number>
               </property>
               <item>
-               <widget class="QWidget" name="AAUSBWidget2" native="true">
+               <widget class="QPushButton" name="pushButtonAndroidAuto2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
                   <horstretch>0</horstretch>
@@ -2703,121 +2703,36 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>0</width>
+                  <width>66</width>
                   <height>66</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>132</height>
+                  <width>66</width>
+                  <height>66</height>
                  </size>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_11">
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
-                 <item>
-                  <widget class="QPushButton" name="pushButtonAndroidAuto2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>66</width>
-                     <height>66</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>66</width>
-                     <height>66</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgba(136, 138, 133, 0);
+border-radius: 0px;
+border: 0px solid rgba(255,255,255,0.5);
 outline: none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normalon>:/aausb-hot.png</normalon>
-                    </iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>50</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButtonNoDevice2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>66</width>
-                     <height>66</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>66</width>
-                     <height>66</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-color: rgb(255, 255, 255);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
-outline: none;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset>
-                     <normalon>../../../assets/home-hot.png</normalon>
-                    </iconset>
-                   </property>
-                   <property name="iconSize">
-                    <size>
-                     <width>50</width>
-                     <height>50</height>
-                    </size>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normalon>:/aausb-hot.png</normalon>
+                 </iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>66</width>
+                  <height>66</height>
+                 </size>
+                </property>
                </widget>
               </item>
               <item>
@@ -2841,9 +2756,9 @@ outline: none;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
+                 <string notr="true">background-color: rgba(136, 138, 133, 0);
+border-radius: 0px;
+border: 0px solid rgba(255,255,255,0.5);
 outline: none;</string>
                 </property>
                 <property name="text">
@@ -2856,8 +2771,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>66</width>
+                  <height>66</height>
                  </size>
                 </property>
                </widget>
@@ -2883,9 +2798,9 @@ outline: none;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgba(136, 138, 133, 0.5);
-border-radius: 4px;
-border: 2px solid rgba(255,255,255,0.5);
+                 <string notr="true">background-color: rgba(136, 138, 133, 0);
+border-radius: 0px;
+border: 0px solid rgba(255,255,255,0.5);
 outline: none;</string>
                 </property>
                 <property name="text">
@@ -2898,8 +2813,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>66</width>
+                  <height>66</height>
                  </size>
                 </property>
                </widget>
@@ -5405,7 +5320,7 @@ outline: none;</string>
       </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>
@@ -5569,7 +5484,7 @@ background-color: #6d6d6d;</string>
       </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>
@@ -5665,12 +5580,12 @@ background-color: #6d6d6d;</string>
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
+        <width>0</width>
         <height>0</height>
        </size>
       </property>

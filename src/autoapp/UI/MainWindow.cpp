@@ -793,7 +793,6 @@ void f1x::openauto::autoapp::ui::MainWindow::updateAlpha()
         ui_->pushButtonReboot2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonCancel2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonAndroidAuto2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonNoDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonWifi2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonNoWiFiDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonCameraShow2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
@@ -1766,7 +1765,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         }
         if (ui_->pushButtonAndroidAuto2->isVisible() == false) {
             ui_->pushButtonAndroidAuto2->show();
-            ui_->pushButtonNoDevice2->hide();
         }
         try {
             QFile deviceData(QString("/tmp/android_device"));
@@ -1784,7 +1782,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->ButtonAndroidAuto->hide();
         }
         if (ui_->pushButtonAndroidAuto2->isVisible() == true) {
-            ui_->pushButtonNoDevice2->show();
             ui_->pushButtonAndroidAuto2->hide();
         }
         ui_->labelAndroidAutoBottom->setText("");
