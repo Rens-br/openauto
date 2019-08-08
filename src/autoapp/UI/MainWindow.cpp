@@ -235,7 +235,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->AAWIFIWidget2->hide();
     } else {
         ui_->AAUSBWidget->hide();
-        ui_->AAUSBWidget2->hide();
     }
 
     if (std::ifstream("/tmp/temp_recent_list") || std::ifstream("/tmp/mobile_hotspot_detected")) {
@@ -1912,14 +1911,12 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->AAWIFIWidget->hide();
             ui_->AAWIFIWidget2->hide();
             ui_->AAUSBWidget->show();
-            ui_->AAUSBWidget2->show();
         }
     } else {
         if ((ui_->AAWIFIWidget->isVisible() == false) || (ui_->AAWIFIWidget2->isVisible() == false)) {
             ui_->AAWIFIWidget->show();
             ui_->AAWIFIWidget2->show();
             ui_->AAUSBWidget->hide();
-            ui_->AAUSBWidget2->hide();
         }
     }
 
