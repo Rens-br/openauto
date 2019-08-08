@@ -99,15 +99,10 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonCancel2, &QPushButton::clicked, this, &MainWindow::toggleExit);
     connect(ui_->pushButtonDay, &QPushButton::clicked, this, &MainWindow::TriggerScriptDay);
     connect(ui_->pushButtonDay, &QPushButton::clicked, this, &MainWindow::switchGuiToDay);
-    connect(ui_->pushButtonDay2, &QPushButton::clicked, this, &MainWindow::TriggerScriptDay);
-    connect(ui_->pushButtonDay2, &QPushButton::clicked, this, &MainWindow::switchGuiToDay);
     connect(ui_->pushButtonNight, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
     connect(ui_->pushButtonNight, &QPushButton::clicked, this, &MainWindow::switchGuiToNight);
-    connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
-    connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::switchGuiToNight);
     connect(ui_->pushButtonBrightness, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
     connect(ui_->pushButtonVolume, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
-    connect(ui_->pushButtonVolume2, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonDebug, &QPushButton::clicked, this, &MainWindow::createDebuglog);
     connect(ui_->pushButtonDebug2, &QPushButton::clicked, this, &MainWindow::createDebuglog);
     connect(ui_->pushButtonBluetooth, &QPushButton::clicked, this, &MainWindow::setPairable);
@@ -428,14 +423,10 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     MainWindow::updateBG();
     if (!this->nightModeEnabled) {
         ui_->pushButtonDay->hide();
-        ui_->pushButtonDay2->hide();
         ui_->pushButtonNight->show();
-        ui_->pushButtonNight2->show();
     } else {
         ui_->pushButtonNight->hide();
-        ui_->pushButtonNight2->hide();
         ui_->pushButtonDay->show();
-        ui_->pushButtonDay2->show();
     }
 
     // use big clock in classic gui?
@@ -476,7 +467,6 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
         ui_->BrightnessSliderControl->hide();
         // also hide volume button cause not needed if brightness not visible
         ui_->pushButtonVolume->hide();
-        ui_->pushButtonVolume2->hide();
     }
 
     // init alpha values
@@ -486,12 +476,9 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     if (this->lightsensor) {
         ui_->pushButtonDay->hide();
         ui_->pushButtonNight->hide();
-        ui_->pushButtonDay2->hide();
-        ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
         // hide also volume cause not needed without brightness
         ui_->pushButtonVolume->hide();
-        ui_->pushButtonVolume2->hide();
     }
 
     // Hide recordings button
@@ -809,10 +796,7 @@ void f1x::openauto::autoapp::ui::MainWindow::updateAlpha()
         ui_->pushButtonNoDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonWifi2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonNoWiFiDevice2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonDay2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonNight2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonCameraShow2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
-        ui_->pushButtonVolume2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
         ui_->pushButtonDebug2->setStyleSheet( "background-color: rgba(136, 138, 133, " + alp + " ); color: rgb(255, 255, 255); border-radius: 4px; border: 2px solid rgba(255,255,255,0.5); outline: none;");
     }
 }
@@ -822,9 +806,7 @@ void f1x::openauto::autoapp::ui::MainWindow::switchGuiToNight()
     //MainWindow::on_pushButtonVolume_clicked();
     f1x::openauto::autoapp::ui::MainWindow::updateBG();
     ui_->pushButtonDay->show();
-    ui_->pushButtonDay2->show();
     ui_->pushButtonNight->hide();
-    ui_->pushButtonNight2->hide();
     ui_->BrightnessSliderControl->hide();
     if (ui_->mediaWidget->isVisible() == true) {
         ui_->VolumeSliderControl->hide();
@@ -836,9 +818,7 @@ void f1x::openauto::autoapp::ui::MainWindow::switchGuiToDay()
     //MainWindow::on_pushButtonVolume_clicked();
     f1x::openauto::autoapp::ui::MainWindow::updateBG();
     ui_->pushButtonNight->show();
-    ui_->pushButtonNight2->show();
     ui_->pushButtonDay->hide();
-    ui_->pushButtonDay2->hide();
     ui_->BrightnessSliderControl->hide();
     if (ui_->mediaWidget->isVisible() == true) {
         ui_->VolumeSliderControl->hide();
@@ -1985,16 +1965,11 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
     if (ui_->pushButtonDebug2->isVisible() == true) {
         button_count = button_count + 1;
     }
-    if (ui_->pushButtonVolume2->isVisible() == true) {
-        button_count = button_count + 1;
-    }
 
     // Hide auto day/night if needed
     if (this->lightsensor || std::ifstream("/tmp/daynight_gpio")) {
         ui_->pushButtonDay->hide();
         ui_->pushButtonNight->hide();
-        ui_->pushButtonDay2->hide();
-        ui_->pushButtonNight2->hide();
         ui_->pushButtonBrightness->hide();
     }
 
@@ -2052,7 +2027,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
             ui_->BrightnessSliderControl->hide();
             // also hide volume button if brightness hidden
             ui_->pushButtonVolume->hide();
-            ui_->pushButtonVolume2->hide();
             if (ui_->mediaWidget->isVisible() == false) {
                 ui_->VolumeSliderControl->show();
             }
@@ -2063,7 +2037,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
                 ui_->pushButtonBrightness->show();
                 // also show volume button if brightness visible
                 ui_->pushButtonVolume->show();
-                ui_->pushButtonVolume2->show();
                 ui_->BrightnessSliderControl->hide();
             }
         }
