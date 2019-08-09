@@ -429,30 +429,17 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     }
 
     // use big clock in classic gui?
-    if (configuration->showBigClock()) {
-        this->UseBigClock = true;
-    } else {
-        this->UseBigClock = false;
-    }
 
     // clock viibility by settings
     if (!configuration->showClock()) {
         ui_->Digital_clock->hide();
-        ui_->bigClock->hide();
         this->NoClock = true;
     } else {
         this->NoClock = false;
-        if (this->UseBigClock) {
-            ui_->oldmenuDummy->hide();
-            ui_->bigClock->show();
-            if (oldGUIStyle) {
-                ui_->Digital_clock->hide();
-            }
-        } else {
+
             ui_->oldmenuDummy->show();
             ui_->Digital_clock->show();
-            ui_->bigClock->hide();
-        }
+
     }
 
     // hide gui toggle if enabled in settings
@@ -949,13 +936,8 @@ void f1x::openauto::autoapp::ui::MainWindow::toggleGUI()
         ui_->oldmenuWidget->show();
         ui_->menuWidget->hide();
         this->oldGUIStyle = true;
-        if (!this->NoClock) {
-            if (UseBigClock) {
-                ui_->Digital_clock->hide();
-                ui_->bigClock->show();
-            } else {
+        if (!this->NoClock) {       
                 ui_->Digital_clock->show();
-                ui_->bigClock->hide();
             }
         }
         MainWindow::on_pushButtonVolume_clicked();
@@ -1061,8 +1043,6 @@ void f1x::openauto::autoapp::ui::MainWindow::showTime()
     }
 
     ui_->Digital_clock->setText(time_text);
-    ui_->bigClock->setText(time_text);
-    ui_->bigClock2->setText(time_text);
 
     if (!this->holidaybg) {
         if (this->date_text == "12/24") {
@@ -1967,31 +1947,18 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         ui_->pushButtonBrightness->hide();
     }
 
-    // use big clock in classic gui?
-    if (this->configuration_->showBigClock()) {
-        this->UseBigClock = true;
-    } else {
-        this->UseBigClock = false;
-    }
+
 
     // clock viibility by settings
     if (!this->configuration_->showClock()) {
         ui_->Digital_clock->hide();
         ui_->oldmenuDummy->show();
-        ui_->bigClock->hide();
+
         this->NoClock = true;
     } else {
         this->NoClock = false;
-        if (this->UseBigClock && ui_->oldmenuWidget->isVisible() == true) {
-            ui_->oldmenuDummy->hide();
-            ui_->bigClock->show();
-            if (oldGUIStyle) {
-                ui_->Digital_clock->hide();
-            }
-        } else {
             ui_->oldmenuDummy->show();
             ui_->Digital_clock->show();
-            ui_->bigClock->hide();
         }
     }
 
