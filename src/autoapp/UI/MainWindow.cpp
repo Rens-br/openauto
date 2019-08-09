@@ -939,7 +939,7 @@ void f1x::openauto::autoapp::ui::MainWindow::toggleGUI()
         if (!this->NoClock) {       
                 ui_->Digital_clock->show();
             }
-        }
+
         MainWindow::on_pushButtonVolume_clicked();
     } else {
         ui_->menuWidget->show();
@@ -948,7 +948,7 @@ void f1x::openauto::autoapp::ui::MainWindow::toggleGUI()
         if (!this->NoClock) {
             ui_->Digital_clock->show();
         }
-    }
+
     f1x::openauto::autoapp::ui::MainWindow::updateBG();
     f1x::openauto::autoapp::ui::MainWindow::tmpChanged();
 }
