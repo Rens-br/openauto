@@ -1739,6 +1739,10 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         if (ui_->pushButtonAndroidAuto2->isVisible() == false) {
             ui_->pushButtonAndroidAuto2->show();
         }
+        if (ui_->phoneConnected->isVisible() == false) {
+            ui_->phoneConnected->show();
+            ui_->phoneDisconnected->hide();
+        }
         try {
             QFile deviceData(QString("/tmp/android_device"));
             deviceData.open(QIODevice::ReadOnly);
@@ -1756,6 +1760,10 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         }
         if (ui_->pushButtonAndroidAuto2->isVisible() == true) {
             ui_->pushButtonAndroidAuto2->hide();
+        }
+        if (ui_->phoneConnected->isVisible() == true) {
+            ui_->phoneConnected->hide();
+            ui_->phoneDisconnected->show();
         }
         ui_->labelAndroidAutoBottom->setText("");
     }

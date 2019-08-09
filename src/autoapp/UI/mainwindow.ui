@@ -327,19 +327,19 @@
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -353,8 +353,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -369,14 +369,14 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="palette">
@@ -580,7 +580,7 @@ outline: none;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -594,8 +594,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -610,19 +610,19 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -636,8 +636,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -676,19 +676,19 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -702,8 +702,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -718,19 +718,19 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -744,8 +744,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -760,19 +760,19 @@ outline: none;</string>
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>66</width>
-                  <height>66</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgba(1, 1, 1, 0);
-border-radius: 33px;
+border-radius: 39px;
 border: 3px solid rgba(255,255,255,1);
 outline: none;</string>
                 </property>
@@ -786,8 +786,8 @@ outline: none;</string>
                 </property>
                 <property name="iconSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>78</width>
+                  <height>78</height>
                  </size>
                 </property>
                </widget>
@@ -796,7 +796,7 @@ outline: none;</string>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="bigClock">
+            <widget class="QLabel" name="phoneNotConnected">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -817,13 +817,26 @@ outline: none;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/phone-image.png</pixmap>
+              <pixmap>:/phone-disconnected.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>false</bool>
              </property>
              <property name="alignment">
               <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="phoneConnected">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap>:/phone-connected.png</pixmap>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
              </property>
             </widget>
            </item>
@@ -837,7 +850,7 @@ outline: none;</string>
              </property>
              <property name="maximumSize">
               <size>
-               <width>81</width>
+               <width>93</width>
                <height>16777215</height>
               </size>
              </property>
