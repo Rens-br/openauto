@@ -275,6 +275,22 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
+            <spacer name="horizontalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>15</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QWidget" name="buttonWidget" native="true">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
@@ -821,7 +837,7 @@ outline: none;</string>
              </property>
              <property name="maximumSize">
               <size>
-               <width>66</width>
+               <width>81</width>
                <height>16777215</height>
               </size>
              </property>
