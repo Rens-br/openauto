@@ -796,7 +796,7 @@ outline: none;</string>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="phoneNotConnected">
+            <widget class="QLabel" name="phoneDisconnected">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
