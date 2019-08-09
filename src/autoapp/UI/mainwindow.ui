@@ -836,7 +836,7 @@ outline: none;</string>
               <pixmap>:/phone-connected.png</pixmap>
              </property>
              <property name="alignment">
-              <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+              <set>Qt::AlignBottom|Qt::AlignHCenter</set>
              </property>
             </widget>
            </item>
