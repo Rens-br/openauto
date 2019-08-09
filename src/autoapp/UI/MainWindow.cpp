@@ -1953,7 +1953,6 @@ void f1x::openauto::autoapp::ui::MainWindow::tmpChanged()
         this->NoClock = false;
             ui_->oldmenuDummy->show();
             ui_->Digital_clock->show();
-        }
     }
 
     if (!this->configuration_->showNetworkinfo()) {
