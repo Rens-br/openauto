@@ -113,6 +113,8 @@ private slots:
     void on_pushButtonVolume2_clicked();
     void switchGuiToDay();
     void switchGuiToNight();
+    void switchGuiToDay2();
+    void switchGuiToNight2();
     void showTime();
     void cameraControlShow();
     void cameraControlHide();
