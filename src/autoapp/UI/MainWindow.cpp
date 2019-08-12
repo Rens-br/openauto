@@ -226,6 +226,9 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     ui_->exitWidget->hide();
     ui_->horizontalWidgetPower->hide();
 
+    // as default hide phone connected image
+    ui_->phoneConnected->hide();
+
     // as default hide muted button
     ui_->pushButtonUnMute->hide();
 
