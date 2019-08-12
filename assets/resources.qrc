@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
+        <file>moon-hot.png</file>
+        <file>sun-hot.png</file>
         <file>ico_warning.png</file>
         <file>ico_info.png</file>
         <file>aausb-hot.png</file>

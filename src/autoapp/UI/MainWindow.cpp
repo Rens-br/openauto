@@ -99,8 +99,12 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     connect(ui_->pushButtonCancel2, &QPushButton::clicked, this, &MainWindow::toggleExit);
     connect(ui_->pushButtonDay, &QPushButton::clicked, this, &MainWindow::TriggerScriptDay);
     connect(ui_->pushButtonDay, &QPushButton::clicked, this, &MainWindow::switchGuiToDay);
+    connect(ui_->pushButtonDay2, &QPushButton::clicked, this, &MainWindow::TriggerScriptDay);
+    connect(ui_->pushButtonDay2, &QPushButton::clicked, this, &MainWindow::switchGuiToDay2);
     connect(ui_->pushButtonNight, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
     connect(ui_->pushButtonNight, &QPushButton::clicked, this, &MainWindow::switchGuiToNight);
+    connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::TriggerScriptNight);
+    connect(ui_->pushButtonNight2, &QPushButton::clicked, this, &MainWindow::switchGuiToNight2);
     connect(ui_->pushButtonBrightness, &QPushButton::clicked, this, &MainWindow::showBrightnessSlider);
     connect(ui_->pushButtonVolume, &QPushButton::clicked, this, &MainWindow::showVolumeSlider);
     connect(ui_->pushButtonDebug, &QPushButton::clicked, this, &MainWindow::createDebuglog);
@@ -426,9 +430,13 @@ MainWindow::MainWindow(configuration::IConfiguration::Pointer configuration, QWi
     if (!this->nightModeEnabled) {
         ui_->pushButtonDay->hide();
         ui_->pushButtonNight->show();
+        ui_->pushButtonNight2->show();
+        ui_->pushButtonDay2->hide();
     } else {
         ui_->pushButtonNight->hide();
         ui_->pushButtonDay->show();
+        ui_->pushButtonNight2->hide();
+        ui_->pushButtonDay2->show();
     }
 
     // use big clock in classic gui?
@@ -805,6 +813,18 @@ void f1x::openauto::autoapp::ui::MainWindow::switchGuiToDay()
     if (ui_->mediaWidget->isVisible() == true) {
         ui_->VolumeSliderControl->hide();
     }
+}
+
+void f1x::openauto::autoapp::ui::MainWindow::switchGuiToDay2()
+{
+    ui_->pushButtonNight2->show();
+    ui_->pushButtonDay2->hide();
+}
+
+void f1x::openauto::autoapp::ui::MainWindow::switchGuiToNight2()
+{
+    ui_->pushButtonNight2->hide();
+    ui_->pushButtonDay2->show();
 }
 
 void f1x::openauto::autoapp::ui::MainWindow::cameraControlHide()

@@ -318,6 +318,90 @@
                <number>10</number>
               </property>
               <item>
+               <widget class="QPushButton" name="pushButtonNight2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgba(1, 1, 1, 0);
+border-radius: 39px;
+border: 3px solid rgba(255,255,255,1);
+outline: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normalon>:/moon-hot.png</normalon>
+                 </iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonDay2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgba(1, 1, 1, 0);
+border-radius: 39px;
+border: 3px solid rgba(255,255,255,1);
+outline: none;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normalon>:/sun-hot.png</normalon>
+                 </iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>78</width>
+                  <height>78</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QPushButton" name="pushButtonAndroidAuto2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
